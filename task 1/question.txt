@@ -1,0 +1,8 @@
+Task 1:
+Write a Bash script that connects securely to three remote servers using SSH key-based authentication and retrieves CPU, RAM, and storage utilization. The script must:
+
+1. Handle unreachable or unresponsive servers gracefully.
+2. Collect the metrics in parallel to minimize execution time.
+3. Generate a JSON report sorted in descending order by storage usage, then CPU, then memory.
+4. Store the report with a timestamp in a /var/reports/directory.
+5. Exit with an appropriate status code and log any errors to /var/log/server-metrics.log

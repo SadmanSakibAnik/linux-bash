@@ -1,0 +1,57 @@
+Vagrant.configure("2") do |config|
+  config.vm.box = "ubuntu/jammy64"
+
+  # Local public key content
+  LOCAL_PUBLIC_KEY = <<-KEY
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC3wiPewS5HHf2QwxEmiiHGw3RLkrLgHFM0P7d/D56beUFX8RvKwJih2d6QZ5ou7izhoM9SqeO6B42gALpGpWfaUWoOfMjAlMFZfs1lKVBPLBdUiW50GmG28x57He+2FMGkA/dye5eUMHxWstRNvOIyRsmsG+Ls6RLHy+ahXMrVsYFqf4tfJK2STbBtQaHtDoXpw+6vFfi39w5uXwaN862O1LdO7p/jggeFPnWJkiNm3opQN83fM3/rCmd1wLVz2+AnUIQEHcaQ1lYAv7V76m5CYp8hTSnNVKZ+AQ9az/wB8XUCAyHuLcYV2WBVLdK3gmfeE45u+3EgEkjLxVTAnG56hZm1l7yIZPq8WV/gmfuLAQew8XKeReiJbceLy3cPpwnR7qU5gJ7K0q0H3BVQzdA+xKXmy7hgVZT9JZZSWPVs0sUSbLCnlHMpckG2C9sfNeXvSUbOsX2VHJMp2uEF+FQOgBvBQ3/BoxLdqT/c62ktTNZDlRC2xtLtr36jGHx5Zo0= tn-99646@TN-AIO-0093
+  KEY
+
+  # ---------------- Server 1 ----------------
+  config.vm.define "server1" do |server|
+    server.vm.hostname = "server1"
+    server.vm.network "private_network", ip: "192.168.56.11"
+    server.vm.provider "virtualbox" do |vb|
+      vb.memory = 1024
+      vb.cpus = 1
+    end
+    server.vm.provision "shell", inline: <<-SHELL
+      mkdir -p /home/vagrant/.ssh
+      echo '#{LOCAL_PUBLIC_KEY}' >> /home/vagrant/.ssh/authorized_keys
+      chown -R vagrant:vagrant /home/vagrant/.ssh
+      chmod 600 /home/vagrant/.ssh/authorized_keys
+    SHELL
+  end
+
+  # ---------------- Server 2 ----------------
+  config.vm.define "server2" do |server|
+    server.vm.hostname = "server2"
+    server.vm.network "private_network", ip: "192.168.56.12"
+    server.vm.provider "virtualbox" do |vb|
+      vb.memory = 2048
+      vb.cpus = 2
+    end
+    server.vm.provision "shell", inline: <<-SHELL
+      mkdir -p /home/vagrant/.ssh
+      echo '#{LOCAL_PUBLIC_KEY}' >> /home/vagrant/.ssh/authorized_keys
+      chown -R vagrant:vagrant /home/vagrant/.ssh
+      chmod 600 /home/vagrant/.ssh/authorized_keys
+    SHELL
+  end
+
+  # ---------------- Server 3 ----------------
+  config.vm.define "server3" do |server|
+    server.vm.hostname = "server3"
+    server.vm.network "private_network", ip: "192.168.56.13"
+    server.vm.provider "virtualbox" do |vb|
+      vb.memory = 512
+      vb.cpus = 1
+    end
+    server.vm.provision "shell", inline: <<-SHELL
+      mkdir -p /home/vagrant/.ssh
+      echo '#{LOCAL_PUBLIC_KEY}' >> /home/vagrant/.ssh/authorized_keys
+      chown -R vagrant:vagrant /home/vagrant/.ssh
+      chmod 600 /home/vagrant/.ssh/authorized_keys
+    SHELL
+  end
+end
+
