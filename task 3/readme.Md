@@ -34,7 +34,7 @@
 mkdir ~/my_webpage
 
 # সেই ফোল্ডারের ভেতরে একটি index.html ফাইল তৈরি করুন
-echo "<h1>My First Automated Deployment is a Success!</h1>" > ~/my_webpage/index.html
+echo "<h1>Task Accomplished</h1>" > ~/my_webpage/index.html
 ```
 
 ### ধাপ ২: ডেপ্লয়মেন্ট স্ক্রিপ্টটি তৈরি করুন
