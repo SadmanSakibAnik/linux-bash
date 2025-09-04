@@ -44,8 +44,6 @@ echo "<h1>Task Accomplished</h1>" > ~/my_webpage/index.html
 ```bash
 #!/bin/bash
 
-# --- চূড়ান্ত, নির্ভরযোগ্য এবং ফ্রেসার-ফ্রেন্ডলি ডেপ্লয়মেন্ট স্ক্রিপ্ট ---
-
 echo "--- Starting Deployment ---"
 
 # ধাপ ১: নেটওয়ার্ক তৈরি করা
