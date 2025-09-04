@@ -1,0 +1,8 @@
+Task 3:
+Write a Bash script that performs the following with full automation:
+
+1. Deploys an Nginx container with a fixed name and custom network.
+2. Waits until the container is confirmed healthy (using docker inspect or curl health check).
+3. Logs a message that the container is deployed and running to /var/log/nginx-deploy.log.
+4. Replaces the default index.html with the message | [ Task Accomplished ], verifying the change by sending an HTTP request to the container.
+5. Implements proper error handling: if deployment fails, the script must roll back (stop and remove the container) and log the error.

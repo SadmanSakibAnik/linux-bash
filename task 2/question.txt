@@ -1,0 +1,8 @@
+Task 2:
+Create a systemd service unit to manage a custom application. The service must:
+
+1. Ensure the application runs at startup and automatically restarts on failure.
+2. Redirect standard output and error logs to /home/log.
+3. Configure log rotation with a maximum size of 100MB per file, retention of 30 days, and compression enabled for older logs.
+4. Ensure logs are owned by a specific non-root user for security.
+5. Demonstrate how you would test and validate the service functionality, including failure recovery.

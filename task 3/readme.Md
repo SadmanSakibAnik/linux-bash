@@ -1,8 +1,3 @@
-# Write a Bash script that performs the following with full automation: Deploys an Nginx container with a fixed name and custom network. Waits until the container is confirmed healthy (using docker inspect or curl health check). Logs a message that the container is deployed and running to /var/log/nginx-deploy.log. Replaces the default index.html with the message | "My First Automated Deployment is a Success", verifying the change by sending an HTTP request to the container.
-
-
-Implements proper error handling: if deployment fails, the script must roll back (stop and remove the container) and log the error.
-
 ## সংক্ষিপ্ত বিবরণ (Summary)
 
 এই প্রকল্পটি একটি সাধারণ ব্যাশ স্ক্রিপ্ট প্রদান করে যা Docker ব্যবহার করে একটি Nginx ওয়েব সার্ভার স্বয়ংক্রিয়ভাবে ডেপ্লয় করার প্রক্রিয়া বর্ণনা করে। এই স্ক্রিপ্টটি বিশেষভাবে নতুনদের জন্য তৈরি করা হয়েছে, যেখানে প্রতিটি ধাপ সহজবোধ্য এবং কোডের ফ্লো সোজাসাপ্টা রাখা হয়েছে। এর প্রধান বৈশিষ্ট্য হলো শক্তিশালী এরর হ্যান্ডলিং এবং স্বয়ংক্রিয় রোলব্যাক, যা ডেপ্লয়মেন্ট প্রক্রিয়ার যেকোনো ব্যর্থতায় সিস্টেমকে পরিচ্ছন্ন রাখে।

@@ -1,5 +1,3 @@
-#Create a systemd service unit to manage a custom application. The service must: Ensure the application runs at startup and automatically restarts on failure. Redirect standard output and error logs to /home/log. Configure log rotation with a maximum size of 100MB per file, retention of 30 days, and compression enabled for older logs. Ensure logs are owned by a specific non-root user for security.Demonstrate how you would test and validate the service functionality, including failure recovery. 
-
 এই ডকুমেন্টেশনটি দেখাবে কিভাবে একটি **Node.js অ্যাপ্লিকেশন** কে **systemd service** হিসেবে কনফিগার করবেন।  
 
 ---
